@@ -161,7 +161,7 @@ if uploaded_image is not None:
    # Save the uploaded image to a temporary directory
    image_path = os.path.join(DIR, "temp", uploaded_image.name)
    with open(image_path, "wb") as file:
-   file.write(uploaded_image.getbuffer())
+       file.write(uploaded_image.getbuffer())
 
    # Update the image file path
    imagefile = image_path
