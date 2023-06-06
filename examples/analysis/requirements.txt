@@ -1,2 +1,2 @@
-streamlit
-pygazeanalyser
+streamlit == 1.23.1
+python-pygaze == 0.7.6
