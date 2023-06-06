@@ -4,6 +4,9 @@
 
 __author__ = "Edwin Dalmaijer"
 
+# Streamlit
+import streamlit as st
+
 # native
 import os
 
@@ -147,3 +150,26 @@ for ppname in PPS:
 
 		# heatmap		
 		draw_heatmap(fixations, DISPSIZE, imagefile=imagefile, durationweight=True, alpha=0.5, savefilename=heatmapfile)
+
+
+                # Streamlit interface for uploading image
+                uploaded_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
+
+                if uploaded_image is not None:
+                    # Save the uploaded image to a temporary directory
+                    image_path = os.path.join(DIR, "temp", uploaded_image.name)
+                    with open(image_path, "wb") as file:
+                        file.write(uploaded_image.getbuffer())
+
+                    # Update the image file path
+                    imagefile = image_path
+
+                    # Generate the heatmap using the uploaded image
+                    heatmapfile = os.path.join(pplotdir, "heatmap_%s_%d" % (ppname, trialnr))
+                    draw_heatmap(fixations, DISPSIZE, imagefile=imagefile, durationweight=True, alpha=0.5, savefilename=heatmapfile)
+
+                    # Display the uploaded image
+                    st.image(image_path, use_column_width=True)
+            
+                    # Display the resulting heatmap
+                    st.image(heatmapfile, use_column_width=True)
