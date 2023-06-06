@@ -14,8 +14,8 @@ st.title("Heatmap Generation")
 import os
 
 # custom
-from pygazeanalyser.edfreader import read_edf
-from pygazeanalyser.gazeplotter import draw_fixations, draw_heatmap, draw_scanpath, draw_raw
+from analysis.pygazeanalyser.edfreader import read_edf
+from analysis.pygazeanalyser.gazeplotter import draw_fixations, draw_heatmap, draw_scanpath, draw_raw
 
 # external
 import numpy
