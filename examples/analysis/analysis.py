@@ -7,6 +7,9 @@ __author__ = "Edwin Dalmaijer"
 # Streamlit
 import streamlit as st
 
+# Streamlit code
+st.title("Heatmap Generation")
+
 # native
 import os
 
@@ -151,9 +154,8 @@ for ppname in PPS:
 		# heatmap		
 		draw_heatmap(fixations, DISPSIZE, imagefile=imagefile, durationweight=True, alpha=0.5, savefilename=heatmapfile)
 
-
-                # Streamlit interface for uploading image
-                uploaded_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
+# Streamlit interface for uploading image
+uploaded_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
                 if uploaded_image is not None:
                     # Save the uploaded image to a temporary directory
