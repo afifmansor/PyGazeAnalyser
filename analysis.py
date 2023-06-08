@@ -38,9 +38,6 @@ DATADIR = os.path.join(DIR, 'data')
 PLOTDIR = os.path.join(DIR, 'plots')
 OUTPUTFILENAME = os.path.join(DIR, "output.txt")
 
-if not os.path.isdir(IMGDIR):
-    os.makedirs(IMGDIR)
-
 # check if the image directory exists
 if not os.path.isdir(IMGDIR):
 	raise Exception("ERROR: no image directory found; path '%s' does not exist!" % IMGDIR)
